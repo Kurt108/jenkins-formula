@@ -11,3 +11,5 @@ github-jenkins:
     - fingerprint: {{ salt['pillar.get']('github:fingerprint') }}
     - require:
       - user: jenkins
+
+#
