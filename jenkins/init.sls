@@ -13,3 +13,13 @@ github-jenkins:
       - user: jenkins
 
 #
+
+dotenv:
+  file.managed:
+    - name: {{ salt['pillar.get']('users:jenkins:home') }}/.env
+    - user: jenkins
+    - content: salt://jenkins/dotenv
+    - require:
+      - user: jenkins
+
+#
