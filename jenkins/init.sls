@@ -6,8 +6,20 @@ github-jenkins:
   ssh_known_hosts:
     - present
     - name: github.com
-    - user: root
+    - user: jenkins
     - enc: ssh-rsa
     - fingerprint: {{ salt['pillar.get']('github:fingerprint') }}
     - require:
       - user: jenkins
+
+#
+
+dotenv:
+  file.managed:
+    - name: {{ salt['pillar.get']('users:jenkins:home') }}/.env
+    - user: jenkins
+    - content: salt://jenkins/dotenv
+    - require:
+      - user: jenkins
+
+#
