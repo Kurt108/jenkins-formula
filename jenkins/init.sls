@@ -21,5 +21,6 @@ dotenv:
     - source: salt://jenkins/dotenv
     - require:
       - user: jenkins
+    - template: jinja
 
 #
