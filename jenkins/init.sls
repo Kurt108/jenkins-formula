@@ -18,7 +18,7 @@ dotenv:
   file.managed:
     - name: {{ salt['pillar.get']('users:jenkins:home') }}/.env
     - user: jenkins
-    - content: salt://jenkins/dotenv
+    - source: salt://jenkins/dotenv
     - require:
       - user: jenkins
 
